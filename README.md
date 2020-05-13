@@ -81,7 +81,7 @@ class Config1:
 
 celery_app = celery.Celery()
 celery_app.config_from_object(Config1)
-print(type(celery_app))
+
 
 
 if __name__ == '__main__':
