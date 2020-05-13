@@ -1,0 +1,34 @@
+文件夹 PATH 列表
+卷序列号为 927B-F991
+F:.
+│  .gitignore
+│  nb_log_config.py
+│  README.md
+│
+│
+├─aaaa
+│  └─b
+│      └─c
+│          │  celery_app_inatcance.py
+│          │
+│          └─__pycache__
+│                  celery_app_inatcance.cpython-36.pyc
+│
+├─dddd
+│  ├─e
+│  │  │  taske.py
+│  │  │
+│  │  └─__pycache__
+│  │          taske.cpython-36.pyc
+│  │
+│  └─f
+│      │  taskf.py
+│      │
+│      └─__pycache__
+│              taskf.cpython-36.pyc
+│
+├─gggg
+│      publish.py
+│
+
+        
