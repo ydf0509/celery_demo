@@ -15,7 +15,7 @@ platforms.C_FORCE_ROOT = True
 
 class Config1:
     broker_url = f'redis://'  # 使用redis
-    include = ['dddd.e.taske','dddd.f.taskf']
+    include = ['dddd.e.taske','dddd.f.taskf']  # 这行非常重要
 
     task_routes = {
         '求和': {"queue": "queue_add", },
