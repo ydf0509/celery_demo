@@ -87,7 +87,9 @@ celery_app.config_from_object(Config1)
 if __name__ == '__main__':
     # celery_demo 项目在我的磁盘是 F:\coding2\celery_demo。
 
-    # 第一种运行方式，直接运行此py脚本。如果在pycahrm中可以直接运行，如果控制台运行py脚本先设置PYTHONPATH=F:\coding2\celery_demo，再python celery_app_inatcance.py 运行。
+    # 第一种运行方式，直接运行此py脚本。如果在pycahrm中可以直接运行，
+    # 如果控制台运行py脚本先设置PYTHONPATH=F:\coding2\celery_demo，再python celery_app_inatcance.py 运行。
+    # 控制台运行py脚本，不需要设置PYTHONPATH方式，先进入到celery_demo的根目录下，再python -m aaaa.b.c.celery_app_inatcance
     celery_app.worker_main(
         argv=['worker','--pool=gevent', '--concurrency=20', '-n', 'worker1@%h', '--loglevel=debug',
               '--queues=queue_add,queue_sub', '--detach', ])
