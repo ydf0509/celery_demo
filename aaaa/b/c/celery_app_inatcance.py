@@ -17,7 +17,7 @@ platforms.C_FORCE_ROOT = True
 class Config1:
     # broker_url = f'redis://'  # 使用redis
     broker_url = 'sqla+sqlite:////celerydb.sqlite'
-    include = ['dddd.e.taske', 'dddd.f.taskf']  # 这行非常重要
+    include = ['dddd.e.taske', ]  # 这行非常重要,第一种方式找到消费函数
 
     task_routes = {
         '求和': {"queue": "queue_add", },
@@ -31,7 +31,9 @@ celery_app = celery.Celery()
 
 celery_app.config_from_object(Config1)
 
-celery_app._task_from_fun(funj, '功能j')   # 非装饰器方式注册消费任务函数
+celery_app.autodiscover_tasks(['dddd.f',],'taskf')  #第二种方式找到消费函数
+
+celery_app._task_from_fun(funj, '功能j')   # 非装饰器方式注册消费任务函数，第三种方式找到消费函数
 
 
 if __name__ == '__main__':
@@ -43,7 +45,7 @@ if __name__ == '__main__':
     # --queues=queue_add,queue_sub,queue_j
     celery_app.worker_main(
         argv=['worker', '--pool=gevent', '--concurrency=20', '-n', 'worker1@%h', '--loglevel=debug',
-              '--queues=queue_j', '--detach', ])
+              '--queues=queue_j,queue_sub', '--detach', ])
 
     """
     第二种运行方式，使用官方介绍的流行的celery命令行运行

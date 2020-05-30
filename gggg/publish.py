@@ -9,7 +9,7 @@ celery_app.send_task('求和',args=(100,200))
 
 
 # [add.delay(i, 2 * i) for i in range(10)]
-# [sub.apply_async(args=(i, 2 * i)) for i in range(10)]
+[sub.apply_async(args=(i, 2 * i)) for i in range(10)]
 celery_app.send_task('功能j', args=('哈哈',))
 """
 {
