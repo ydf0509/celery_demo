@@ -1,6 +1,6 @@
 ## 1.演示完全不规则的文件夹目录，使用celery。
 
-## 2.介绍两种运行celery消费的方式
+## 2.演示两种运行celery消费的方式
 
  1).使用python xxx.py的方式启动消费
  
@@ -18,7 +18,7 @@ send_task
 
 app.task装饰器 + include
 
-app.task装饰器 + auto_discover_tasks
+app.task装饰器 + autodiscover_tasks
 
 app._task_from_fun 非装饰器方式， 用法类似于flask框架的@app.route 和app.add_url_route的关系。
 
