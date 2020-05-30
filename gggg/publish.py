@@ -4,13 +4,13 @@
 from dddd.e.taske import add
 from dddd.f.taskf import sub
 
-# from a.b.c.celery_app_inatcance import celery_app
-# celery_app.send_task('queue_add',args=(1,2))
+from aaaa.b.c.celery_app_inatcance import celery_app
+celery_app.send_task('求和',args=(100,200))
 
 
-[add.delay(i, 2 * i) for i in range(10)]
-[sub.apply_async(args=(i, 2 * i)) for i in range(10)]
-
+# [add.delay(i, 2 * i) for i in range(10)]
+# [sub.apply_async(args=(i, 2 * i)) for i in range(10)]
+celery_app.send_task('功能j', args=('哈哈',))
 """
 {
   "body": "W1sxLCAyXSwge30sIHsiY2FsbGJhY2tzIjogbnVsbCwgImVycmJhY2tzIjogbnVsbCwgImNoYWluIjogbnVsbCwgImNob3JkIjogbnVsbH1d",
