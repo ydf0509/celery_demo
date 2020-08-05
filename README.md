@@ -1,8 +1,17 @@
 ## 1.演示完全故意命名和文件夹层级不规则的项目下，使用celery。
 
+```
 只要学会了这个demo的文件夹，celery 70%以上的使用问题就能掌握了，
 
 只有掌握这种不规则的文件夹结构，而不是靠不断的改文件夹名字，不断的移动py文件位置，不断地测试，完全靠瞎猜测来使用celery。
+
+如果想不依赖特定项目结构，同时也不需要复杂配置的指定 include 或 autodiscover_tasks ，怎么玩转分布式任务调度呢，
+
+这就需要使用分布式函数调度框架。 
+https://github.com/ydf0509/distributed_framework
+pip install function_scheduling_distributed_framework --upgrade
+```
+
 
 ## 2.演示两种运行celery消费的方式
 
@@ -94,7 +103,16 @@ celery_app = celery.Celery()
 
 celery_app.config_from_object(Config1)
 
-celery_app.autodiscover_tasks(['dddd.f',],'taskf')  #第二种方式找到消费函数
+celery_app.autodiscover_tasks(['dddd.f',],'taskf')  #第二种方式找到消费函数。
+# 特别要需要说明一下这个 autodiscover_tasks 方法，表面意思是自动发现任务，那意思是不是这很流弊，暴击第一种配置include的用法呢，
+# 这个方法仍然是需要很多个传参的，你理解的自动发现好像是神仙级别的智能的，啥参数都不需要传，自动就能发现任务。
+# 喂，快醒醒吧，要是对于任意层级和命名的py文件，autodiscover_tasks方法啥参数都不需要传，就能自动发现，
+# 那官方早就把 autodiscover_tasks 弄成框架内部自动替你运行了，还会需要用暴露成公有方法需要户去手动调用吗。
+
+# autodiscover_tasks 的 两个重要入参有 packages=None,related_name='tasks'，这两个入参有默认值，
+# 啥参数都不传就能自动发现，前提是你的消费函数写在了一个叫task.py的文件中，同时 task.py和celery的app实例是在同一个文件夹层级里面。
+# 如果你把被 @app.task 装饰的函数写在了一个 叫 job666.py的文件中，你就发现运行时候，报错 celery.exceptions.NotRegistered
+
 
 celery_app._task_from_fun(funj, '功能j')   # 非装饰器方式注册消费任务函数，第三种方式找到消费函数
 
