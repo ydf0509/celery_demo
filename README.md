@@ -136,7 +136,13 @@ if __name__ == '__main__':
     F: & cd F:\coding2\celery_demo 
     
     celery   worker --app=aaaa.b.c.celery_app_inatcance:celery_app --pool=gevent --concurrency=5  --queues=queue_add,queue_sub
+    # 注意一下 --app后面接的值，这才是celery的本质。
     """
+
+
+
+
+
 
 
 ```
