@@ -11,3 +11,7 @@ def add(x,y):
     time.sleep(3)
     print(f'{x} + {y} = {x + y}')
     time.sleep(3)
+
+
+if __name__ == '__main__':
+    add(1,2)
