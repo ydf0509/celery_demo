@@ -1,6 +1,6 @@
 ## 1.演示完全故意命名和文件夹层级不规则的项目下，使用celery。
 
-<pre style="color: aqua;font-size: medium">
+<pre style="color: #006400;font-size: medium">
 不标准文件夹结构下，解决老是问celery怎么不执行任务了
 
 不标准文件夹结构下，解决恼人的 celery.exceptions.NotRegistered
