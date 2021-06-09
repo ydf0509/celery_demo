@@ -6,7 +6,7 @@
 不标准文件夹结构下，解决恼人的 celery.exceptions.NotRegistered
 
 celery除了性能很差以外，celery做的最差劲的方面无疑就是他的门槛太高，
-多少人都卡在celery不运行或者NotRegistered在第一步就劝退了。
+多少人没小心翼翼按照严格标准的项目目录结构调用celery，卡在celery不运行任务或者报错NotRegistered在第一步就劝退了。
 
 分布式函数调度框架对比celery有19个提升，其中之一就是随意目录层级 随意文件夹 文件命名。
 </pre>
