@@ -1,5 +1,16 @@
 ## 1.演示完全故意命名和文件夹层级不规则的项目下，使用celery。
 
+<pre style="color: aqua;font-size: medium">
+不标准文件夹结构下，解决老是问celery怎么不执行任务了
+
+不标准文件夹结构下，解决恼人的 celery.exceptions.NotRegistered
+
+celery除了性能很差以外，celery做的最差劲的方面无疑就是他的门槛太高，
+多少人都卡在celery不运行或者NotRegistered在第一步就劝退了。
+
+分布式函数调度框架对比celery有19个提升，其中之一就是随意目录层级 随意文件夹 文件命名。
+</pre>
+
 ```
 只要学会了这个demo的文件夹，celery 70%以上的使用问题就能掌握了，
 

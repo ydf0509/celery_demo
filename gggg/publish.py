@@ -1,16 +1,28 @@
 # -*- coding: utf-8 -*-
 # @Author  : ydf
 # @Time    : 2020/1/16 0016 9:55
-from dddd.e.taske import add
-from dddd.f.taskf import sub
+
+
+
 
 from aaaa.b.c.celery_app_inatcance import celery_app
-celery_app.send_task('求和',args=(100,200))
+celery_app.send_task('求和',args=(100,200)) # 第一种发布方式
 
+from dddd.e.taske import add
+[add.delay(i, 2 * i) for i in range(10)]  # 第二种发布方式
 
-# [add.delay(i, 2 * i) for i in range(10)]
-[sub.apply_async(args=(i, 2 * i)) for i in range(10)]
+from dddd.f.taskf import sub
+[sub.apply_async(args=(i, 2 * i)) for i in range(10)] # 第三种发布方式，这种入参更丰富可以添加任务控制参数。delay只能是函数本身的参数。
+
 celery_app.send_task('功能j', args=('哈哈',))
+
+
+from dddd.j.k.taskk import test_auto_share_celeryapp
+for i in range(10):
+    test_auto_share_celeryapp.delay(f'测试自动使用解释器中存在的 celery 实例 {i}')
+
+
+
 """
 {
   "body": "W1sxLCAyXSwge30sIHsiY2FsbGJhY2tzIjogbnVsbCwgImVycmJhY2tzIjogbnVsbCwgImNoYWluIjogbnVsbCwgImNob3JkIjogbnVsbH1d",
