@@ -23,12 +23,11 @@ https://github.com/ydf0509/distributed_framework
 pip install function_scheduling_distributed_framework --upgrade
 ```
 
-
 ## 2.演示两种运行celery消费的方式
 
- 1).使用python xxx.py的方式启动消费
- 
- 2).使用celery 命令的方式启动消费
+1).使用python xxx.py的方式启动消费
+
+2).使用celery 命令的方式启动消费
 
 ## 3.1演示三种发布任务方式
 
@@ -38,7 +37,7 @@ apply_async
 
 send_task
 
-## 3.2 演示三种函数注册成celery消费任务的方式
+## 3.2 演示4种函数注册成celery消费任务的方式
 
 app.task装饰器 + include
 
@@ -46,7 +45,10 @@ app.task装饰器 + autodiscover_tasks
 
 app._task_from_fun 非装饰器方式， 用法类似于flask框架的@app.route 和app.add_url_route的关系。
 
+@shared_task装饰器，这个不需要@app.task的app，所以可以在app实例化所在模块直接导入任务函数，不会出现互相导入的纠结。
+
 ## 4 .项目目录结构是：
+
 ```
 
 文件夹 PATH 列表
@@ -80,6 +82,7 @@ celery_demo:.
 ```
 
 ## 主代码
+
 ```python
 # -*- coding: utf-8 -*-
 # @Author  : ydf
@@ -107,6 +110,7 @@ class Config1:
         # 'd.e.taske.add': {"queue": "queue_add4", },
         'sub啊': {"queue": 'queue_sub'},
         '功能j': {"queue": 'queue_j'},
+        '测试自动关联使用已存在celery app 实例': {'queue': 'queue_test_auto_share_celeryapp'}
     }
 
 
@@ -114,7 +118,7 @@ celery_app = celery.Celery()
 
 celery_app.config_from_object(Config1)
 
-celery_app.autodiscover_tasks(['dddd.f',],'taskf')  #第二种方式找到消费函数。
+celery_app.autodiscover_tasks(['dddd.f', ], 'taskf')  # 第二种方式找到消费函数。
 """
 特别要需要说明一下这个 autodiscover_tasks 方法，表面意思是自动发现任务，那意思是不是这很流弊，暴击第一种配置include的用法呢，
 这个方法仍然是需要很多个传参的，你理解的自动发现好像是神仙级别的智能的，啥参数都不需要传，自动就能发现任务。
@@ -127,8 +131,7 @@ autodiscover_tasks 的 两个重要入参有 packages=None,related_name='tasks'�
 如果你把被 @app.task 装饰的函数写在了一个 叫 job666.py的文件中，你就发现消费运行时候，报错 celery.exceptions.NotRegistered
 """
 
-celery_app._task_from_fun(funj, '功能j')   # 非装饰器方式注册消费任务函数，第三种方式找到消费函数
-
+celery_app._task_from_fun(funj, '功能j')  # 非装饰器方式注册消费任务函数，第三种方式找到消费函数
 
 if __name__ == '__main__':
     # celery_demo 项目在我的磁盘是 F:\coding2\celery_demo。

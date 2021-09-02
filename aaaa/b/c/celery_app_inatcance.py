@@ -55,7 +55,7 @@ if __name__ == '__main__':
     # --queues=queue_add,queue_sub,queue_j
     celery_app.worker_main(
         argv=['worker', '--pool=gevent', '--concurrency=20', '-n', 'worker1@%h', '--loglevel=debug',
-              '--queues=queue_j,queue_sub,queue_test_auto_share_celeryapp', '--detach', ])
+              '--queues=queue_j,queue_sub,queue_test_auto_share_celeryapp', ])
 
     """
     第二种运行方式，使用官方介绍的流行的celery命令行运行
@@ -64,3 +64,5 @@ if __name__ == '__main__':
     
     celery   worker --app=aaaa.b.c.celery_app_inatcance:celery_app --pool=gevent --concurrency=5  --queues=queue_add,queue_sub
     """
+
+
