@@ -15,7 +15,7 @@ celery消费任务不执行或者报错NotRegistered，与很多方面有关系�
    
 5) 用户在启动cmd命令行时候，用户所在的文件夹。
    (如果不精通这个demo的，使用cmd命令行启动时候，用户必须cd切换到当前python项目的根目录，
-   如果精通主动自己设置PYTHONPATH和精通此demo，可以在任何目录下启动celery命令行。
+   如果精通主动自己设置PYTHONPATH和精通此demo，可以在任何目录下启动celery命令行或者不使用celery命令行而是调用app.worker_main 用python脚本启动。
 ```
 
 ## 1.演示完全故意命名和文件夹层级不规则的项目下，使用celery。
