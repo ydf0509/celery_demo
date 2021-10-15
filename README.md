@@ -149,7 +149,7 @@ celery_app.autodiscover_tasks(['dddd.f', ], 'taskf')  # 第二种方式找到消
 用脑子想想就知道官方不可能这么傻非要麻烦用户的。写代码就怕一味地望文生义，宁愿乱猜测自己瞎意淫，也不愿意跳转到源码面稍微看看入参有哪些。
 
 autodiscover_tasks 的 两个重要入参有 packages=None,related_name='tasks'，这两个入参有默认值，
-啥参数都不传就能自动发现，前提是你的消费函数写在了一个叫task.py的文件中，同时 task.py和celery的app实例是在同一个文件夹层级里面。
+啥参数都不传就能自动发现，前提是你的消费函数写在了一个叫tasks.py的文件中，同时 tasks.py和celery的app实例是在同一个文件夹层级里面。
 如果你把被 @app.task 装饰的函数写在了一个 叫 job666.py的文件中，你就发现消费运行时候，报错 celery.exceptions.NotRegistered
 """
 
