@@ -1,3 +1,23 @@
+## 0. 如果学会了这个demo，则掌握celery 60%
+
+如果学会了这个demo，则celery已近掌握了60%至少，大部分人是要celery会遇到任务不执行不动，或这行报错。
+
+celery消费任务不执行或者报错NotRegistered，与很多方面有关系，如果要别人排错，至少要发以下5方面的截图
+
+``````
+1) 整个项目目录结构,celery的目录结构和任务函数位置，有很大影响
+   
+2) @task入参 ,用户有没有主动设置装饰器的入参 name,设置了和没设置有很大不同，建议主动设置这个名字
+   
+3) celery的配置，task_queues(在3.xx叫 CELERY_QUEUES )，task_routes (在3.xx叫 task_routes)
+   
+4) cmd命令行启动参数 --queues=  的值
+   
+5) 用户在启动cmd命令行时候，用户所在的文件夹。
+   (如果不精通这个demo的，使用cmd命令行启动时候，用户必须cd切换到当前python项目的根目录，
+   如果精通主动自己设置PYTHONPATH和精通此demo，可以在任何目录下启动celery命令行。
+```
+
 ## 1.演示完全故意命名和文件夹层级不规则的项目下，使用celery。
 
 <pre style="color: #006400;font-size: medium">
