@@ -197,4 +197,4 @@ if __name__ == '__main__':
 
 funboost自动化操作celery,用户无需处理celery配置,funboost自动搞定这些
 
-[https://github.com/ydf0509/celery_demo](https://github.com/ydf0509/funboost_support_celery_demo)
+[https://github.com/ydf0509/funboost_support_celery_demo](https://github.com/ydf0509/funboost_support_celery_demo)
