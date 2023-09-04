@@ -1,77 +1,4 @@
-## 0. 如果学会了这个demo，则掌握celery 60%
-
-如果学会了这个demo，则celery已近掌握了60%至少，大部分人是要celery会遇到任务不执行不动，或这行报错。
-
-所以网上的celery博客教程虽然很多，但是并不能学会使用，因为要运行起来需要以下6个方面都掌握好，博客文字很难表达清楚或者没有写全面以下6个方面。
-celery消费任务不执行或者报错NotRegistered，与很多方面有关系，如果要别人排错，至少要发以下6方面的截图
-
-
-```
-1) 整个项目目录结构,celery的目录结构和任务函数位置，有很大影响
-   
-2) @task入参 ,用户有没有主动设置装饰器的入参 name,设置了和没设置有很大不同，建议主动设置这个名字对函数名字和所处位置依赖减小
-   
-3) celery的配置，task_queues(在3.xx叫 CELERY_QUEUES )和task_routes (在3.xx叫 task_routes)
-
-4) celery的配置 include （在3.xx叫 CELERY_INCLUDE）或者 imports (3.xx CELERY_IMPORTS)  或者 app.autodiscover_tasks的入参
-
-5) cmd命令行启动参数 --queues=  的值
-   
-6) 用户在启动cmd命令行时候，用户所在的文件夹。
-   (如果不精通这个demo的，使用cmd命令行启动时候，用户必须cd切换到当前python项目的根目录，
-   如果精通主动自己设置PYTHONPATH和精通此demo，可以在任何目录下启动celery命令行或者不使用celery命令行而是调用app.worker_main 用python脚本启动。
-```
-
-## 1.演示完全故意命名和文件夹层级不规则的项目下，使用celery。
-
-<pre style="color: #006400;font-size: medium">
-不标准文件夹结构下，解决老是问celery怎么不执行任务了
-
-不标准文件夹结构下，解决恼人的 celery.exceptions.NotRegistered
-
-celery除了性能很差以外，celery做的最差劲的方面无疑就是他的门槛太高，
-多少人没小心翼翼按照严格标准的项目目录结构调用celery，卡在celery不运行任务或者报错NotRegistered在第一步就劝退了。
-
-分布式函数调度框架对比celery有19个提升，其中之一就是随意目录层级 随意文件夹 文件命名。
-</pre>
-
-```
-只要学会了这个demo的文件夹，celery 70%以上的使用问题就能掌握了，
-
-只有掌握这种不规则的文件夹结构，而不是靠不断的改文件夹名字，不断的移动py文件位置，不断地测试，完全靠瞎猜测来使用celery。
-
-如果想不依赖特定项目结构，同时也不需要复杂配置的指定 include 或 autodiscover_tasks ，怎么玩转分布式任务调度呢，
-
-这就需要使用分布式函数调度框架。 
-https://github.com/ydf0509/distributed_framework
-pip install function_scheduling_distributed_framework --upgrade
-```
-
-## 2.演示两种运行celery消费的方式
-
-1).使用python xxx.py的方式启动消费
-
-2).使用celery 命令的方式启动消费
-
-## 3.1演示三种发布任务方式
-
-delay
-
-apply_async
-
-send_task
-
-## 3.2 演示4种函数注册成celery消费任务的方式
-
-app.task装饰器 + include
-
-app.task装饰器 + autodiscover_tasks
-
-app._task_from_fun 非装饰器方式， 用法类似于flask框架的@app.route 和app.add_url_route的关系。
-
-@shared_task装饰器，这个不需要@app.task的app，所以可以在app实例化所在模块直接导入任务函数，不会出现互相导入的纠结。
-
-## 4 .项目目录结构是：
+## 演示不规范的celery项目目录结构的celery的使用：
 
 ```
 
@@ -105,7 +32,87 @@ celery_demo:.
         
 ```
 
-## 主代码
+## 0. 如果学会了这个不规则celery项目目录的demo，则掌握celery 60%
+
+如果学会了这个demo，则celery已近掌握了60%至少，大部分人是要celery会遇到任务不执行不动，或这行报错。
+
+所以网上的celery博客教程虽然很多，但是并不能学会使用，因为要运行起来需要以下6个方面都掌握好，博客文字很难表达清楚或者没有写全面以下6个方面。
+celery消费任务不执行或者报错NotRegistered，与很多方面有关系，如果要别人排错，至少要发以下6方面的截图
+
+
+```
+1) 整个项目目录结构,celery的目录结构和任务函数位置，有很大影响
+   
+2) @task入参 ,用户有没有主动设置装饰器的入参 name,设置了和没设置有很大不同，建议主动设置这个名字对函数名字和所处位置依赖减小
+   
+3) celery的配置，task_queues 和task_routes 
+
+4) celery的配置 include 或者 imports  或者 app.autodiscover_tasks的入参
+
+5) cmd命令行启动参数 --queues=  的值
+   
+6) 用户在启动cmd命令行时候，用户所在的文件夹。
+   (如果不精通这个demo的，使用cmd命令行启动时候，用户必须cd切换到当前python项目的根目录，
+   如果精通主动自己设置PYTHONPATH和精通此demo，可以在任何目录下启动celery命令行或者不使用celery命令行而是调用app.worker_main 用python脚本启动。
+```
+
+## 1.演示完全故意命名和文件夹层级不规则的项目下，使用celery。
+
+<pre style="color: #006400;font-size: medium">
+不标准文件夹结构下，解决老是问celery怎么不执行任务了
+
+不标准文件夹结构下，解决恼人的 celery.exceptions.NotRegistered
+
+celery除了性能很差以外，celery做的最差劲的方面无疑就是他的门槛太高，
+多少人没小心翼翼按照严格标准的项目目录结构调用celery，卡在celery不运行任务或者报错NotRegistered在第一步就劝退了。
+
+分布式函数调度框架对比celery有19个提升，其中之一就是随意目录层级 随意文件夹 文件命名。
+</pre>
+
+```
+只要学会了这个demo的文件夹，celery 70%以上的使用问题就能掌握了，
+
+只有掌握这种不规则的文件夹结构，而不是靠不断的改文件夹名字，不断的移动py文件位置，不断地测试，完全靠瞎猜测来使用celery。
+
+```
+
+<pre style="color: greenyellow;background-color: #0c1119; font-size: medium;">
+如果想不依赖特定项目结构，同时也不需要复杂配置的指定 include 或 autodiscover_tasks ，怎么玩转分布式任务调度呢，
+
+这就需要使用分布式函数调度框架。 
+https://github.com/ydf0509/funboost
+pip install funboost 
+</pre>
+
+## 2.演示两种运行celery消费的方式
+
+1).使用python xxx.py的方式启动消费
+
+2).使用celery 命令的方式启动消费
+
+## 3.1演示三种发布任务方式
+
+delay
+
+apply_async
+
+send_task
+
+## 3.2 演示4种函数注册成celery消费任务的方式
+
+app.task装饰器 + include
+
+app.task装饰器 + autodiscover_tasks
+
+app._task_from_fun 非装饰器方式， 用法类似于flask框架的@app.route 和app.add_url_route的关系。
+
+@shared_task装饰器，这个不需要@app.task的app，所以可以在app实例化所在模块直接导入任务函数，不会出现互相导入的纠结。
+
+## 4 主代码
+
+```
+包含了三种方式找到消费函数,
+```
 
 ```python
 # -*- coding: utf-8 -*-
