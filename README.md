@@ -1,5 +1,11 @@
 ## 演示不规范的celery项目目录结构的celery的使用：
 
+<pre style="color: greenyellow;background-color: #0c1119; font-size: x-large;">
+文章结尾第五章放出大杀器 funboost 自动化操作celery demo例子
+</pre>
+
+
+
 ```
 
 文件夹 PATH 列表
@@ -185,3 +191,10 @@ if __name__ == '__main__':
     """
 
 ```
+
+
+## 5 funboost 自动化操作celery
+
+funboost自动化操作celery,用户无需处理celery配置,funboost自动搞定这些
+
+[https://github.com/ydf0509/celery_demo](https://github.com/ydf0509/celery_demo)
