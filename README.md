@@ -193,8 +193,8 @@ if __name__ == '__main__':
 ```
 
 
-## 5 funboost 自动化操作celery
+## 5 [大杀器] funboost 自动化操作celery
 
-funboost自动化操作celery,用户无需处理celery配置,funboost自动搞定这些
+funboost自动化配置和操作celery,用户无需处理celery配置,funboost自动搞定这些
 
 [https://github.com/ydf0509/funboost_support_celery_demo](https://github.com/ydf0509/funboost_support_celery_demo)
