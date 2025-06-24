@@ -4,7 +4,17 @@
 文章结尾第五章放出大杀器 funboost 自动化操作celery demo例子
 </pre>
 
+## 小白用户使用celery最容易劝退，往往卡在第一步。
+**小白用户的典型困扰：**
+- 🤔 "我的目录结构是不是不对？"
+- 😰 "为什么总是 NotRegistered 错误？"
+- 📝 "include 应该填什么路径？"
+- 🔄 "不断的改文件夹名字，不断的移动py文件位置"
+- 🎲 "完全靠瞎猜测来使用celery"
 
+## ai总结的funboost暴击celery原因之一，任务发现机制
+
+见markdown [funboost暴击celery原因之一，任务发现机制](https://github.com/ydf0509/funboost_support_celery_demo/blob/main/README.md)
 
 ```
 
