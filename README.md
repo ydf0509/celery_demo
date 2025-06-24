@@ -14,7 +14,7 @@
 
 ## ai总结的funboost暴击celery原因之一，任务发现机制
 
-见markdown [funboost暴击celery原因之一，任务发现机制](https://github.com/ydf0509/funboost_support_celery_demo/blob/main/README.md)
+见markdown [funboost暴击celery原因之一，任务发现机制](https://github.com/ydf0509/celery_demo/blob/master/ai%E6%80%BB%E7%BB%93%E7%9A%84funboost%E6%9A%B4%E5%87%BBcelery%E5%8E%9F%E5%9B%A0%E4%B9%8B%E4%B8%80%EF%BC%8C%E4%BB%BB%E5%8A%A1%E5%8F%91%E7%8E%B0%E6%9C%BA%E5%88%B6.md)
 
 ```
 
